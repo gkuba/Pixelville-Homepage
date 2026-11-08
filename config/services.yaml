@@ -1,0 +1,180 @@
+# Converted from Homarr-default.json. Secrets come from env vars (HOMEPAGE_VAR_*), see ../env.example.
+# siteMonitor mirrors Homarr's status checker; it is left off where Homarr had it disabled.
+
+
+
+
+
+
+
+
+- Network:
+  - PFSense:
+      icon: pfsense.png
+      href: http://pixelgate
+      description: Firewall and router
+      siteMonitor: http://pixelgate
+  - Comcast Modem:
+      icon: asus-router.png
+      href: 'http://{{HOMEPAGE_VAR_MODEM_HOST}}'
+      description: ISP modem
+      siteMonitor: 'http://{{HOMEPAGE_VAR_MODEM_HOST}}'
+  - TP-Link Wifi:
+      icon: tp-link.png
+      href: 'https://pixelstore:28043/{{HOMEPAGE_VAR_TPLINK_PATH}}'
+      description: Wifi controller
+      siteMonitor: 'https://pixelstore:28043/{{HOMEPAGE_VAR_TPLINK_PATH}}'
+  - PixelStore:
+      icon: asustor.svg
+      href: https://pixelstore:8010/portal
+      description: NAS portal
+      siteMonitor: https://pixelstore:8010/portal
+  - Syncthing:
+      icon: syncthing.png
+      href: http://pixelstore:28384
+      description: File sync
+      siteMonitor: http://pixelstore:28384
+- DNS:
+  - AdGuard - Pixelstore:
+      icon: adguard-home.png
+      href: http://pixelstore:3000
+      description: DNS and ad blocking
+      siteMonitor: http://pixelstore:3000
+      widget:
+        type: adguard
+        url: http://pixelstore:3000
+        username: '{{HOMEPAGE_VAR_ADGUARD_STORE_USER}}'
+        password: '{{HOMEPAGE_VAR_ADGUARD_STORE_PASS}}'
+  - AdGuard - Pixelutil:
+      icon: adguard-home.png
+      href: http://pixelutil:81
+      description: DNS and ad blocking
+      siteMonitor: http://pixelutil:81
+      widget:
+        type: adguard
+        url: http://pixelutil:81
+        username: '{{HOMEPAGE_VAR_ADGUARD_UTIL_USER}}'
+        password: '{{HOMEPAGE_VAR_ADGUARD_UTIL_PASS}}'
+- Tools:
+  - Kuma:
+      icon: uptime-kuma.svg
+      href: http://pixelutil:3001/dashboard
+      description: Uptime monitoring
+      siteMonitor: http://pixelutil:3001
+      widget:
+        type: uptimekuma
+        url: http://pixelutil:3001
+        slug: pixelville
+  - Dockge:
+      icon: https://github.com/louislam/dockge/raw/master/frontend/public/icon.svg
+      href: http://pixelutil:5001
+      description: Compose stacks
+      siteMonitor: http://pixelutil:5001
+  - Gitea:
+      icon: gitea.png
+      href: https://pixelstore:3100
+      description: Git hosting
+      siteMonitor: https://pixelstore:3100
+  - PixelAi - Open-WebUI:
+      icon: open-webui.svg
+      href: http://pixelai:3000
+      description: Local AI chat
+      siteMonitor: http://pixelai:3000
+  - ntfy:
+      icon: ntfy.svg
+      href: http://pixelutil:88
+      description: Notifications
+      siteMonitor: http://pixelutil:88
+- Servers:
+  - AMP - Controller:
+      icon: amp.png
+      href: https://pixelutil
+      description: Game server controller
+      siteMonitor: https://pixelutil
+  - AMP - Pixel:
+      icon: amp.png
+      href: http://pixel:8080
+      description: Game host
+      siteMonitor: http://pixel:8080
+  - AMP - Pixel 2:
+      icon: amp.png
+      href: http://pixel2:8080
+      description: Game host
+      siteMonitor: http://pixel2:8080
+  - AMP - Pixel 3:
+      icon: amp.png
+      href: http://pixel3:8080
+      description: Game host
+      siteMonitor: http://pixel3:8080
+- Media:
+  - Jellyfin:
+      icon: jellyfin.png
+      href: http://pixelstore:28096/web/index.html#
+      description: Media server
+      siteMonitor: http://pixelstore:28096
+      widget:
+        type: jellyfin
+        url: http://pixelstore:28096
+        key: '{{HOMEPAGE_VAR_JELLYFIN_KEY}}'
+        version: 2
+        enableBlocks: true
+  - Sonarr:
+      icon: sonarr.png
+      href: http://pixelstore:18989
+      description: TV shows
+      siteMonitor: http://pixelstore:18989
+      widget:
+        type: sonarr
+        url: http://pixelstore:18989
+        key: '{{HOMEPAGE_VAR_SONARR_KEY}}'
+  - Radarr:
+      icon: radarr.png
+      href: http://pixelstore:17878
+      description: Movies
+      siteMonitor: http://pixelstore:17878
+      widget:
+        type: radarr
+        url: http://pixelstore:17878
+        key: '{{HOMEPAGE_VAR_RADARR_KEY}}'
+  - Deluge:
+      icon: deluge.png
+      href: https://pixelstore:28112
+      description: Downloads
+      widget:
+        type: deluge
+        url: https://pixelstore:28112
+        password: '{{HOMEPAGE_VAR_DELUGE_PASS}}'
+  - Jackett:
+      icon: jackett.png
+      href: http://pixelstore:19117/UI/Dashboard
+      description: Indexer proxy
+- Calendar:
+  - Calendar:
+      icon: mdi-calendar
+      widget:
+        type: calendar
+        firstDayInWeek: sunday
+        view: monthly
+        maxEvents: 10
+        integrations:
+        - type: sonarr
+          service_group: Media
+          service_name: Sonarr
+        - type: radarr
+          service_group: Media
+          service_name: Radarr
+- Releases:
+  - Upcoming:
+      icon: mdi-calendar-clock
+      widget:
+        type: calendar
+        view: agenda
+        maxEvents: 10
+        showTime: true
+        integrations:
+        - type: sonarr
+          service_group: Media
+          service_name: Sonarr
+        - type: radarr
+          service_group: Media
+          service_name: Radarr

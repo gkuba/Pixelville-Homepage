@@ -1,0 +1,25 @@
+- resources:
+    label: Pixelutil
+    cpu: true
+    memory: true
+
+- search:
+    provider: google
+    target: _blank
+
+- openmeteo:
+    label: Layton
+    latitude: 41.06022
+    longitude: -111.97105
+    timezone: America/Denver
+    units: imperial
+    cache: 5
+
+- datetime:
+    text_size: lg
+    locale: en-US
+    format:
+      timeZone: America/Denver
+      dateStyle: long
+      timeStyle: short
+      hour12: true

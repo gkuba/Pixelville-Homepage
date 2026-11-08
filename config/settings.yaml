@@ -1,0 +1,28 @@
+title: Pixelville Homepage
+favicon: /images/favicon.svg
+theme: dark
+color: slate
+headerStyle: clean
+cardBlur: md
+useEqualHeights: true
+statusStyle: dot
+hideVersion: true
+target: _blank
+maxGroupColumns: 4
+
+layout:
+  Network:
+    style: column
+  DNS:
+    style: column
+  Tools:
+    style: column
+  Servers:
+    style: row
+    columns: 4
+  Media:
+    style: column
+  Calendar:
+    style: column
+  Releases:
+    style: column

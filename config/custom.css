@@ -1,0 +1,91 @@
+/* Dracula theme matching tuxgamer.com. Fonts are served from the mounted images folder (/images/). */
+@font-face { font-family: "Inter"; font-weight: 400 800; font-display: swap; src: url("/images/inter-latin.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 400 600; font-display: swap; src: url("/images/jetbrains-mono-latin.woff2") format("woff2"); }
+
+:root {
+  --bg: #1e1f29;
+  --bg-2: #282a36;
+  --bg-3: #343746;
+  --line: #44475a;
+  --fg: #f8f8f2;
+  --fg-2: #bcc2cd;
+  --fg-3: #8b90a8;
+  --purple: #bd93f9;
+  --pink: #ff79c6;
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --orange: #ffb86c;
+}
+
+html, body {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+  color: var(--fg);
+  background: var(--bg) !important;
+}
+
+/* Title and group headings */
+#page_container h1, #page_container [class*="title"] { letter-spacing: -.02em; }
+.service-group-name {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .8rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  letter-spacing: .04em;
+  color: var(--pink) !important;
+}
+.service-group-name::before { content: "~/"; color: var(--fg-3); }
+
+/* Cards */
+.service-card, .bookmark-card, .information-widget-calendar, #information-widgets .information-widget {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(52, 55, 70, .55), rgba(40, 42, 54, .55)) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.service-card::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: 2px;
+  background: linear-gradient(90deg, var(--purple), transparent); opacity: .8;
+}
+.service-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(189, 147, 249, .6) !important;
+  box-shadow: 0 14px 34px -20px var(--purple) !important;
+}
+.service-name { font-weight: 600; color: var(--fg) !important; }
+.service-description { color: var(--fg-3) !important; }
+
+/* Numbers in widgets use the mono font */
+.service-container [class*="text-"], .service-card .font-thin { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+/* Status dots glow */
+.service-card [class*="bg-emerald"], .service-card [class*="bg-green"] { background-color: var(--green) !important; box-shadow: 0 0 8px var(--green); }
+
+/* Search box */
+#information-widgets input { background: transparent !important; color: var(--fg) !important; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 6px; }
+
+/* Inset stat boxes like the mockup */
+.service-block { background: rgba(30, 31, 41, .7) !important; border-radius: 8px !important; margin: 2px !important; }
+.service-block .font-thin, .service-block-value { font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 600; }
+.service-block-label { font-size: .62rem; letter-spacing: .05em; color: var(--fg-3); }
+
+/* Tabs: plain text with a purple underline */
+#tabs ul#myTab { background: none !important; backdrop-filter: none !important; border-radius: 0; border-bottom: 1px solid var(--line); gap: 4px; }
+#tabs ul#myTab li { width: auto !important; height: auto; }
+#tabs ul#myTab button { background: none !important; border-radius: 0; margin: 0; padding: 8px 16px; color: var(--fg-3); font-weight: 600; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+#tabs ul#myTab button[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--purple); }
+#tabs ul#myTab button:hover { color: var(--fg); }
+
+/* Top bar: compact, clock stands out */
+#information-widgets { align-items: center; font-size: .85rem; }
+#information-widgets-right { gap: 16px; align-items: center; }
+#information-widgets-right > div:last-child { font-weight: 600; font-size: 1.2rem; white-space: nowrap; }
+#tabs ul#myTab button:focus-visible { outline: none; }
+
+/* Gap between the rows of groups */
+.services-group { margin-bottom: 28px; }

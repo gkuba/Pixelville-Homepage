@@ -1,0 +1,28 @@
+services:
+  homepage:
+    restart: always
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - 8081:3000
+    dns:
+      - ${DNS_SERVER}
+    dns_search:
+      - ${DNS_SEARCH_DOMAIN}
+    extra_hosts:
+      - pixelutil:host-gateway
+      - pixelgate:${IP_PIXELGATE}
+      - pixelai:${IP_PIXELAI}
+      - pixelstore:${IP_PIXELSTORE}
+      - pixel:${IP_PIXEL}
+      - pixel2:${IP_PIXEL2}
+      - pixel3:${IP_PIXEL3}
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+    env_file:
+      - .env
+    volumes:
+      - /opt/stacks/homepage/config:/app/config # Make sure your local config directory exists
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+      - /opt/stacks/homepage/images:/app/public/images
+networks: {}
