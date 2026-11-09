@@ -20,8 +20,12 @@
 html, body {
   font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
   color: var(--fg);
-  background: var(--bg) !important;
 }
+/* Pixelville skyline under a dark overlay so text stays readable; raise .55 for darker */
+html {
+  background: linear-gradient(rgba(30, 31, 41, .55), rgba(30, 31, 41, .55)), url("/images/pixelville-bg.jpg") center / cover fixed no-repeat, var(--bg) !important;
+}
+body, #__next { background: transparent !important; }
 
 /* Title and group headings */
 #page_container h1, #page_container [class*="title"] { letter-spacing: -.02em; }
