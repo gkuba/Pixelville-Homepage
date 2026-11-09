@@ -14,6 +14,7 @@
 
 
 
+
 - Network:
   - Comcast Modem:
       icon: asus-router.png
@@ -159,10 +160,12 @@
         type: deluge
         url: https://pixelstore:28112
         password: '{{HOMEPAGE_VAR_DELUGE_PASS}}'
+      siteMonitor: https://pixelstore:28112
   - Jackett:
       icon: jackett.png
       href: http://pixelstore:19117/UI/Dashboard
       description: Indexer proxy
+      siteMonitor: http://pixelstore:19117
 - Calendar:
   - Calendar:
       icon: mdi-calendar
