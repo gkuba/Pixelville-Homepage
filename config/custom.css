@@ -93,3 +93,28 @@ body, #__next { background: transparent !important; }
 
 /* Gap between the rows of groups */
 .services-group { margin-bottom: 28px; }
+
+/* Coloured stat boxes: AdGuard (queries, blocked, filtered, latency) and Kuma (up, down, uptime) */
+li.service[data-name^="AdGuard"] .service-block:nth-child(1), li.service[data-name="Kuma"] .service-block:nth-child(3) { --tint: 139, 233, 253; --ink: #8be9fd; }
+li.service[data-name^="AdGuard"] .service-block:nth-child(2), li.service[data-name="Kuma"] .service-block:nth-child(2) { --tint: 255, 85, 85; --ink: #ff5555; }
+li.service[data-name^="AdGuard"] .service-block:nth-child(3) { --tint: 255, 184, 108; --ink: #ffb86c; }
+li.service[data-name^="AdGuard"] .service-block:nth-child(4), li.service[data-name="Kuma"] .service-block:nth-child(1) { --tint: 80, 250, 123; --ink: #50fa7b; }
+li.service[data-name^="AdGuard"] .service-block, li.service[data-name="Kuma"] .service-block {
+  background: rgba(var(--tint), .07) !important;
+  border: 1px solid rgba(var(--tint), .18);
+}
+li.service[data-name^="AdGuard"] .service-block-value, li.service[data-name="Kuma"] .service-block-value { color: color-mix(in srgb, var(--ink) 60%, #bcc2cd); }
+
+/* Gitea stat boxes: repositories, notifications, issues, pulls */
+li.service[data-name="Gitea"] .service-block:nth-child(1) { --tint: 189, 147, 249; --ink: #bd93f9; }
+li.service[data-name="Gitea"] .service-block:nth-child(2) { --tint: 255, 184, 108; --ink: #ffb86c; }
+li.service[data-name="Gitea"] .service-block:nth-child(3) { --tint: 255, 121, 198; --ink: #ff79c6; }
+li.service[data-name="Gitea"] .service-block:nth-child(4) { --tint: 80, 250, 123;  --ink: #50fa7b; }
+li.service[data-name="Gitea"] .service-block {
+  background: rgba(var(--tint), .07) !important;
+  border: 1px solid rgba(var(--tint), .18);
+}
+li.service[data-name="Gitea"] .service-block-value { color: color-mix(in srgb, var(--ink) 60%, #bcc2cd); }
+
+/* Pull the Servers row up closer to the row above it */
+.services-group:has(li.service[data-name="AMP - Controller"]) { margin-top: -28px; }
